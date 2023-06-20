@@ -25,7 +25,19 @@ const app = createApp({
   },
   computed: {},
   methods: {
-    deleteTask(targetIndex) {},
+    // switch tra vero e falso per lo sbarramento della cella
+    lineTrought(toDo) {
+      if (toDo.done === false) {
+        toDo.done = true;
+      } else {
+        toDo.done = false;
+      }
+    },
+    // funzione per eliminare tramite il button
+    deleteTask(toDo) {
+      const filtersList = this.toDoList.filter((element) => element !== toDo);
+      this.toDoList = filtersList;
+    },
   },
 }).mount("#root");
 
