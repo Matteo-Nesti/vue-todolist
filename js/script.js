@@ -28,12 +28,16 @@ const app = createApp({
   methods: {
     // funzione per aggiungere una task
     addTask() {
-      const newAddedTask = {
-        text: this.newTask,
-        done: false,
-      };
-      this.toDoList.push(newAddedTask);
-      this.newTask = "";
+      if (!this.newTask) {
+        return;
+      } else {
+        const newAddedTask = {
+          text: this.newTask,
+          done: false,
+        };
+        this.toDoList.push(newAddedTask);
+        this.newTask = "";
+      }
     },
 
     // switch tra vero e falso per lo sbarramento della cella
