@@ -3,6 +3,7 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      newTask: "",
       toDoList: [
         {
           text: "fare la spesa",
@@ -25,6 +26,16 @@ const app = createApp({
   },
   computed: {},
   methods: {
+    // funzione per aggiungere una task
+    addTask() {
+      const newAddedTask = {
+        text: this.newTask,
+        done: false,
+      };
+      this.toDoList.push(newAddedTask);
+      this.newTask = "";
+    },
+
     // switch tra vero e falso per lo sbarramento della cella
     lineTrought(toDo) {
       if (toDo.done === false) {
