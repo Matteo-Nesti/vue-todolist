@@ -22,17 +22,22 @@
         <h1 class="text-center">To-Do-List</h1>
         <ul class="list-group my-3">
             <li class="list-group-item d-flex justify-content-between" v-for="toDo in toDoList">
+                <!-- se il valore di done e' false verra' mostrata la task normalmente -->
                 <div v-if="toDo.done === false" @click = 'lineTrought(toDo)'>
                     {{toDo.text}} 
                 </div>
+                <!-- altrimenti verra' sbarrata -->
                 <del v-else  @click = 'lineTrought(toDo)'>
                     {{toDo.text}} 
                 </del>
+                <!-- button per eliminare una task -->
                 <button type="button" class="btn-close" @click="deleteTask(toDo)"></button>
             </li>
             <li class="list-group-item " >
                 <div class="input-group my-1 ">
+                    <!-- input per digitare una nuova task e inserirla con il tasto invio -->
                     <input v-model.trim="newTask" type="text" class="form-control" placeholder="aggiungi una task" aria-label="Recipient's username" aria-describedby="button-addon2" @keyup.enter = 'addTask'>
+                    <!-- button per aggiungere la task alla lista -->
                     <button class="btn btn-primary" type="button" id="button-addon2" @click = 'addTask'>Aggiungi</button>
                   </div>
             </li>
