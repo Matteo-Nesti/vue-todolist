@@ -32,7 +32,7 @@ const app = createApp({
         return;
       } else {
         const newAddedTask = {
-          text: this.newTask,
+          text: this.newTask.toLowerCase(),
           done: false,
         };
         this.toDoList.push(newAddedTask);

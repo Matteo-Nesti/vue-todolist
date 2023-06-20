@@ -19,8 +19,8 @@
 </head>
 <body>
     <div id="root" class="container my-3">
-        <h1 class="text-center">To Do List</h1>
-        <ul class="list-group" >
+        <h1 class="text-center">To-Do-List</h1>
+        <ul class="list-group my-3">
             <li class="list-group-item d-flex justify-content-between" v-for="toDo in toDoList">
                 <div v-if="toDo.done === false" @click = 'lineTrought(toDo)'>
                     {{toDo.text}} 
@@ -31,7 +31,7 @@
                 <button type="button" class="btn-close" @click="deleteTask(toDo)"></button>
             </li>
             <li class="list-group-item " >
-                <div class="input-group my-2 ">
+                <div class="input-group my-1 ">
                     <input v-model.trim="newTask" type="text" class="form-control" placeholder="aggiungi una task" aria-label="Recipient's username" aria-describedby="button-addon2" @keyup.enter = 'addTask'>
                     <button class="btn btn-primary" type="button" id="button-addon2" @click = 'addTask'>Aggiungi</button>
                   </div>
